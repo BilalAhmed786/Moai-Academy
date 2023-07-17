@@ -162,7 +162,7 @@ function moai_acc_course_enrolled()
 
 
 
-          <form id="confirm-enroll" action='http://localhost/testtheme/select-a-session/' method="post" enctype="multipart/form-data">
+          <form id="confirm-enroll" action='http://localhost/testtheme/enrollment/' method="post" enctype="multipart/form-data">
 
 
                <div class="card">
@@ -194,10 +194,10 @@ function moai_acc_course_enrolled()
 
                <div>
                     <input id="policycheck" type="checkbox" name='check-policy'>
-                    <label class=labelpolicy for=privacypol><a href="http://localhost/testtheme/privacy-policy/">I have read and accepted the booking policy.</a> </label>
+                    <label class=labelpolicy for=privacypol>I have read and accepted the <a href="http://localhost/testtheme/privacy-policy/">booking policy.</a> </label>
                </div>
                <div class="btn-confirmenroll">
-                    <button class="confirmenrolled" type="submit">Confirm enrollment</button>
+                    <button class="confirmenrolled" name="subenrolled" type="submit">Confirm enrollment</button>
                </div>
           </form>
 <?php
@@ -212,3 +212,53 @@ function moai_acc_course_enrolled()
 }
 
 add_shortcode('enrollment', 'moai_acc_course_enrolled');
+
+
+
+
+
+function moai_acc_course_submit()
+
+{
+
+if(isset($_POST['subenrolled'])){
+
+   
+     $unique_code = uniqid();
+
+     $file = $_FILES['singleimage'];
+
+          $filename = $file['name'];
+          
+          $course = sanitize_text_field($_POST['course']);
+          $seats = sanitize_text_field($_POST['seats']);
+          $address = sanitize_text_field($_POST['address']);
+          $orderno='MBA_'.$unique_code;
+
+          print_r($orderno);
+
+        
+
+
+          // Get the destination path for the uploaded file
+     $upload_dir = plugin_dir_path(__FILE__) . 'images/';
+     
+     $file_path = $upload_dir . basename($filename);
+
+     
+ 
+     // Move the uploaded file to the destination folder
+     move_uploaded_file($file['tmp_name'], $file_path);
+     
+         
+
+
+}
+
+
+
+
+
+}
+
+add_shortcode('course_submit','moai_acc_course_submit');
