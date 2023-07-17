@@ -1,0 +1,412 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body{
+    overflow-x:hidden;
+}
+.option{
+    padding: 10px 15px;
+    /* border: 1px solid; */
+    width: 25%;
+    margin-bottom: 20px;
+}
+.data-picker{
+    width: 25%;
+    
+}
+
+img.arrow-back {
+    float: left;
+}
+img.arrow-back:hover{
+    cursor: pointer;
+}
+.previous{
+    display: none;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.option:hover{
+    cursor: pointer;
+}
+.option.selected{
+    border:1px solid #dcbcb5;
+}
+.next{
+    display: none;
+}
+/*form styles*/
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    /* box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4); */
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 100%;
+    /* margin: 0 10%; */
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+    text-align:center;
+    cursor: pointer;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ee0979;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+
+.submit-button{
+ 
+    background-color: #EDDBD7;
+    font-weight: 600;
+    margin-top: 10px;
+    border: none !important;
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #ee0979;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #C5C5F1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
+input#img-consultation::file-selector-button {
+    height: 100%;
+    border: none;
+    padding: 0 20px;
+    background: #EDDBD7;
+}
+
+
+input#img-consultation {
+    padding: 0px;
+    height: 50px;
+}
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle-start{
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+} 
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+    margin-right: 50px;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #ee0979;
+    color: white;
+}
+
+
+/* Not relevant to this form */
+.dme_link {
+    margin-top: 30px;
+    text-align: center;
+}
+.dme_link a {
+    background: #FFF;
+    font-weight: bold;
+    color: #ee0979;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size: 12px;
+}
+
+.dme_link a:hover, .dme_link a:focus {
+    background: #C5C5F1;
+    text-decoration: none;
+}
+
+
+/* checkout list */
+.checkoutcontainer {
+    text-align: center;
+    margin-top: 35px;
+}
+
+input#firstitem {
+    text-align: center;
+    width:30%;
+    height: 44px;
+    border: 1px solid lightgray;
+    outline:none;
+    font-family: 'Montserrat';
+}
+
+
+input#date {
+text-align: center;
+width:30%;
+height: 44px;
+font-family: 'Montserrat';
+
+}
+
+input.btnorder {
+    padding: 8px 33px;
+    /* background: transparent; */
+    border: none;
+}
+
+
+.next action-button{
+
+display:none;
+
+}
+
+
+
+/* session enroll button  */
+/* select a session */
+a.btn.btn-primary {
+    float: right;
+    margin-top: -94px;
+    margin-right: 31px;
+    padding: 6px 21px;
+    outline: none;
+    text-decoration: none;
+}
+
+.notselectcor{
+    
+    color:red;
+    background:offwhite;
+    width:100%;
+    height:40px;
+    text-align:center;
+    background: whitesmoke;
+    padding: 8px
+
+}
+
+    .card {
+        margin: auto;
+        margin-top: 54px;
+        width: 56%;
+    }
+
+
+    .arrowback {
+        width: 39px;
+        margin-left: 40px;
+        cursor: pointer;
+    }
+
+
+/* Which course are you interested in? */
+
+h1.entry-title {
+    text-align: center;
+}
+
+
+.formgroup {
+    text-align: center;
+    width: 100%;
+    padding: 14px;
+}
+
+input.courseval {
+    text-align: center;
+    cursor: pointer;
+    width: 40%;
+}
+
+
+
+/* Confirm your enrollment */
+
+img.imagprev{
+display: block;
+margin: auto;
+ 
+}
+
+
+input.addbutton {
+
+display: block; 
+margin: auto;
+margin-top: 35px;
+
+}
+
+div#image-preview {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+
+button.confirmenrolled {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 91px !important;
+}
+
+
+input#imgInp {
+    display: block;
+    margin: auto;
+}
+
+label#imgInp-error {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: red;
+    margin-bottom: 10px;
+    background: whitesmoke;
+    width: 26%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+label#check-policy-error {
+    background: whitesmoke;
+    margin-left: 14px;
+    margin-top: 10px;
+    padding: 8px;
+    color: red;
+}
+
+
+
+
+
+
+
+
