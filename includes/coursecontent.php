@@ -224,7 +224,7 @@ function moai_acc_course_submit()
 if(isset($_POST['subenrolled'])){
 
    
-     $unique_code = uniqid();
+    
 
      $file = $_FILES['singleimage'];
 
@@ -233,9 +233,14 @@ if(isset($_POST['subenrolled'])){
           $course = sanitize_text_field($_POST['course']);
           $seats = sanitize_text_field($_POST['seats']);
           $address = sanitize_text_field($_POST['address']);
-          $orderno='MBA_'.$unique_code;
+         
 
-          print_r($orderno);
+          $prefix = 'ORD-'; // Prefix for the order number
+          $random_digits = mt_rand(1000, 9999); // Generate a random 4-digit number
+          $timestamp = time(); // Get the current timestamp
+          $custom_order_number = $prefix . $random_digits . '-' . $timestamp; // Concatenate the components
+          
+          echo "Custom Order Number: " . $custom_order_number;
 
         
 
