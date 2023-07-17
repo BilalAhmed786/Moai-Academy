@@ -234,11 +234,11 @@ if(isset($_POST['subenrolled'])){
           $seats = sanitize_text_field($_POST['seats']);
           $address = sanitize_text_field($_POST['address']);
          
-
+     
           $prefix = 'ORD-'; // Prefix for the order number
           $random_digits = mt_rand(1000, 9999); // Generate a random 4-digit number
-          $timestamp = time(); // Get the current timestamp
-          $custom_order_number = $prefix . $random_digits . '-' . $timestamp; // Concatenate the components
+         
+          $custom_order_number = $prefix . $random_digits; // Concatenate the components
           
           echo "Custom Order Number: " . $custom_order_number;
 
