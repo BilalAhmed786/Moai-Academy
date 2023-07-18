@@ -404,7 +404,18 @@ label#check-policy-error {
 }
 
 
+/* enrollment */
 
+.thanksnote {
+    display: block;
+    margin: auto;
+    text-align: center;
+    background: whitesmoke;
+    width: 20%;
+    color: green;
+    height: 33px;
+    padding: 5px;
+}
 
 
 

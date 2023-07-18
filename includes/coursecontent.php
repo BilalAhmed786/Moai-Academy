@@ -224,15 +224,13 @@ function moai_acc_course_submit()
 if(isset($_POST['subenrolled'])){
 
    
-    
-
      $file = $_FILES['singleimage'];
 
           $filename = $file['name'];
           
           $course = sanitize_text_field($_POST['course']);
-          $seats = sanitize_text_field($_POST['seats']);
-          $address = sanitize_text_field($_POST['address']);
+          $seats =  sanitize_text_field($_POST['seats']);
+          $address =sanitize_text_field($_POST['address']);
          
      
           $prefix = 'ORD-'; // Prefix for the order number
@@ -240,23 +238,34 @@ if(isset($_POST['subenrolled'])){
          
           $custom_order_number = $prefix . $random_digits; // Concatenate the components
           
-          echo "Custom Order Number: " . $custom_order_number;
-
-        
-
+         // echo "Custom Order Number: " . $custom_order_number;
 
           // Get the destination path for the uploaded file
-     $upload_dir = plugin_dir_path(__FILE__) . 'images/';
+     
+          $upload_dir = plugin_dir_path(__FILE__) . 'images/';
      
      $file_path = $upload_dir . basename($filename);
 
      
- 
      // Move the uploaded file to the destination folder
+    
      move_uploaded_file($file['tmp_name'], $file_path);
      
-         
+      
+     
 
+?>
+
+     <div class="thanksnote">
+
+     <b><p>Thanks for enrollment</p></b>
+     
+     </div>
+
+
+
+
+<?php
 
 }
 
